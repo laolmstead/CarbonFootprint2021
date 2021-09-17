@@ -1,0 +1,55 @@
+###
+POST http://localhost:3000/energy HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Electricity",
+    "cost": 20
+}
+
+###
+GET http://localhost:3000/energy HTTP/1.1
+
+
+###
+
+PUT http://localhost:3000/energy/6118986a5163743368fe0934 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Electricity",
+    "cost": 25
+}
+
+###
+DELETE http://localhost:3000/energy/6118986a5163743368fe0934 HTTP/1.1
+
+
+###
+POST http://localhost:3000/energy HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Natural Gas",
+    "cost": 22
+    
+}
+
+###
+POST http://localhost:3000/energy HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Propane",
+    "cost": 10
+    
+}
+
+###
+POST http://localhost:3000/energy HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Fuel Oil",
+    "cost": 12
+}

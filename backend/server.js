@@ -1,7 +1,9 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
+import { energyRouter } from './routes/energy';
 import * as path from 'path';
+
 
 /* wasnt sure what body-parser and cors were for but can add them later as imports
  
