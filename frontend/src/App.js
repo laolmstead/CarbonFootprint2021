@@ -70,15 +70,15 @@ class App extends React.Component {
           <option value="Propane">Propane</option>
         </select>
         <p>How much does your usage cost per month?</p>
-        $<input type="number" id="Fuel_Use" name="Fuel_Use" min="0" default="0"/>
+        $<input type="number" id="Fuel_Use" name="Fuel_Use" min="0" placeholder="0"/>
 
         <h2>Reducing Future Emissions</h2>
         <p>By how many degrees will you turn up your AC in the summertime?</p>
-        <input type="number" id="Up_Thermo_Summer" name="Up_Thermo_Summer" default="0"/>°F
+        <input type="number" id="Up_Thermo_Summer" name="Up_Thermo_Summer" placeholder="0"/>°F
         <p>By how many degrees will you turn down your AC in the wintertime?</p>
-        <input type="number" id="Down_Thermo_Winter" name="Down_Thermo_Winter" default="0"/>°F
+        <input type="number" id="Down_Thermo_Winter" name="Down_Thermo_Winter" placeholder="0"/>°F
         <p>How many lightbulbs will you replace with ENERGY STAR lightbulbs?</p>
-        <input type="number" id="Lightbulbs_Replaced" name="Lightbulbs_Replaced" default="0"/> lightbulbs
+        <input type="number" id="Lightbulbs_Replaced" name="Lightbulbs_Replaced" placeholder="0"/> lightbulbs
         <p>Will you set your computer to Power Management mode?</p>
         <select name="Computer_Power_Management" id="Computer_Power_Management">
           <option value="True">Yes</option>
@@ -91,7 +91,7 @@ class App extends React.Component {
           <option value="True">Yes</option>
           <option value="False">No</option>
         </select>
-        <p>How many loads of laundry do you wash?</p>
+        <p>How many loads of laundry do you wash per week?</p>
         <input type="number" id="Loads_Laundry" min="0" default="0"/> loads per week
         <p>For the following, select yes or no. If you already have ENERGY STAR products, select yes.</p>
         <p>Will you replace your fridge with an ENERGY STAR fridge?</p>
