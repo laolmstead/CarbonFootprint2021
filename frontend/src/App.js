@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './App.css';
+import SideBar from './Components/SideBar';
 
 class App extends React.Component {
   constructor(props) {
@@ -56,8 +57,8 @@ class App extends React.Component {
   render() {
   return (
     <div className="App">
+      <SideBar/>
       <header className="App-header">
-
         <h1>Gas Usage</h1>
 
         <h2>Current Emissions</h2>
