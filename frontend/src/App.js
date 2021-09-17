@@ -1,40 +1,65 @@
+import React, { useEffect } from 'react';
 import './App.css';
 
-function App() {
-  function generate(val) {
-    for (let i=0; i<val; i++) {
-      let header = document.createElement("h2");
-      header.value = `Vehicle {$i}`;
-      let words1 = document.createElement("p");
-      words1.value = "What is the average amount of miles driven by this vehicle per week?";
-      let input = document.createElement("input");
-      input.type = "number";
-      let words2 = document.createElement("p");
-      words2.value = "How many miles does this car get to the gallon?";
-      let input2 = document.createElement("input");
-      input2.type = "number";
-      let container = document.getElementById("parentDiv")
-      container.appendChild(input);
-  }}
-  function generate2(val) {
-    for (let i=0; i<val; i++) {
-      let header = document.createElement("h2");
-      header.value = `Vehicle {$i}`;
-      let words1 = document.createElement("p");
-      words1.value = "How many miles less will you drive this vehicle per week?";
-      let input = document.createElement("input");
-      input.type = "number";
-      let words2 = document.createElement("p");
-      words2.value = "Replace this vehicle with one that gets this many miles per gallon:";
-      let input2 = document.createElement("input");
-      input2.type = "number";
-      let container = document.getElementById("parentDiv")
-      container.appendChild(input);
-  }}
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mpg1: [{Miles_Driven: "", Miles_Per_Gallon: "", Will_Drive: "", Will_MPG: ""}]
+    };
+  }
+
+  // The function for the button that adds more cars to the form
+  addClick(){
+    this.setState(prevState => ({
+      mpg1: [...prevState.mpg1, { Miles_Driven: "", Miles_Per_Gallon: "", Will_Drive: "", Will_MPG: ""}]
+    }))
+  }
+
+  // The function that creates the HTML for the Vehicles section
+  createUI(){
+    return this.state.mpg1.map((el, i) => (
+      <div key={i+1}>
+        <h3>Car {i+1}</h3>
+        <h5>Current Emissions</h5>
+        <p>What is the average amount of miles driven by this vehicle per week?</p>
+        <input placeholder="0" name="Miles_Driven" value={el.Miles_Driven||''} onChange={this.handleChange.bind(this, i)} />
+        <p>How many miles does this car get to the gallon?</p>
+        <input placeholder="0" name="Miles_Per_Gallon" value={el.Miles_Per_Gallon||''} onChange={this.handleChange.bind(this, i)} />
+        <h5>Reducing Future Emissions</h5>
+        <p>How many fewer miles will you drive per week?</p>
+        <input placeholder="0" name="Will_Drive" value={el.Will_Drive||''} onChange={this.handleChange.bind(this, i)} />
+        <p>Replace this vehicle with one that gets this many miles per gallon:</p>
+        <input placeholder="0" name="Will_MPG" value={el.Will_MPG||''} onChange={this.handleChange.bind(this, i)} />
+        <p></p>
+        <input type='button' value='Remove Vehicle' onClick={this.removeClick.bind(this, i)}/>
+      </div>
+    ))
+  }
+
+  // Code for the "Remove" button in Vehicles
+  removeClick(i){
+    let mpg1 = [...this.state.mpg1];
+    mpg1.splice(i, 1);
+    this.setState({ mpg1 })
+  }
+
+  // Handler for... actually I'm not sure what this is for
+  handleChange(i, e) {
+    const { name, value } = e.target;
+    let mpg1 = [...this.state.mpg1];
+    mpg1[i] = {...mpg1[i], [name]: value};
+    this.setState({ mpg1 })
+  }
+
+  // The remainder of the HTML
+  render() {
   return (
     <div className="App">
       <header className="App-header">
+
         <h1>Gas Usage</h1>
+
         <h2>Current Emissions</h2>
         <form action="">
         <p>Household's Primary Heating Source:</p>
@@ -46,6 +71,7 @@ function App() {
         </select>
         <p>How much does your usage cost per month?</p>
         $<input type="number" id="Fuel_Use" name="Fuel_Use" min="0" default="0"/>
+
         <h2>Reducing Future Emissions</h2>
         <p>By how many degrees will you turn up your AC in the summertime?</p>
         <input type="number" id="Up_Thermo_Summer" name="Up_Thermo_Summer" default="0"/>°F
@@ -83,29 +109,28 @@ function App() {
           <option value="True">Yes</option>
           <option value="False">No</option>
         </select>
+
         <h1>Vehicles</h1>
-        <h2>Current Emissions</h2>
-        <p>How many vehicles do you use?</p>
-        <input type="number" id="Num_Vehicles" min="0" default="0"/>
+
+        {this.createUI()}
+        <input type='button' value='Add Vehicle' onClick={this.addClick.bind(this)}/>
+        <h3>Maintenance</h3>
         <p>Do you perform regular maintenance on your cars?</p>
         <select name="Vehicle_Maintenance" id="Vehicle_Maintenance">
           <option value="True">Yes</option>
           <option value="False">No</option>
         </select>
         <div id="parentDiv"></div>
-        <script>
-          generate(document.getElementById("Num_Vehicles").value);
-        </script>
+
         <h2>Reducing Future Emissions</h2>
         <p>Will you maintain your cars in the future?</p>
         <select name="Will_Maintain" id="Will_Maintain">
           <option value="True">Yes</option>
           <option value="False">No</option>
         </select>
-        <script>
-          generate2(document.getElementById("Num_Vehicles").value);
-        </script>
+
         <h1>Waste</h1>
+
         <h2>Current Emissions</h2>
         <p>Do you currently recycle aluminum and metal cans?</p>
         <select name="Recycle_Aluminum_Cans" id="Recycle_Aluminum_Cans">
@@ -132,6 +157,7 @@ function App() {
           <option value="True">Yes</option>
           <option value="False">No</option>
         </select>
+
         <h2>Reducing Future Emissions</h2>
         <p>Will you recycle aluminum and metal cans?</p>
         <select name="Will_Recycle_Aluminum_Cans" id="Will_Recycle_Aluminum_Cans">
@@ -168,6 +194,6 @@ function App() {
       </header>
     </div>
   );
-}
+}}
 
 export default App;
