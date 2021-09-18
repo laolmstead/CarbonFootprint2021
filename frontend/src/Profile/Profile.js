@@ -55,12 +55,11 @@ class Profile extends React.Component {
         <h1>Gas Usage</h1>
         <form className="Profile-form" action="">
             <p>Household's Primary Heating Source:</p>
-            <select name="Type_Heating" id="Type_Heating"
-                onChange="this.className=this.options[this.selectedIndex].className" class="greenText">
-                <option value="Natural_Gas">Natural Gas</option>
-                <option value="Electricity">Electricity</option>
-                <option value="Fuel_Oil">Fuel Oil</option>
-                <option value="Propane">Propane</option>
+            <select name="Type_Heating" id="Type_Heating">
+            <option value="Natural_Gas">Natural Gas</option>
+            <option value="Electricity">Electricity</option>
+            <option value="Fuel_Oil">Fuel Oil</option>
+            <option value="Propane">Propane</option>
             </select>
             <p>How much does your usage cost per month?</p>
             $<input type="number" id="Fuel_Use" name="Fuel_Use" min="0" placeholder="0"/>
