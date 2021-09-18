@@ -1,4 +1,7 @@
-
+#anchorleft {
+    text-align: left;
+    position: fixed;
+}
 
 .Profile{
     text-align: center;
