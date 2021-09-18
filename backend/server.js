@@ -17,11 +17,11 @@ import * as path from 'path';
 const app = express()
 
 // process.env.PORT is for mongo compass usage. links to .env file which contains url
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 // database connection
 mongoose.connect(
-    "mongodb://localhost:27017/carbon_db",
+    process.env.MONGO_DB_CONNECTION_STRING || "mongodb://localhost:27017/carbon_db",
     {useNewUrlParser: true, useUnifiedTopology: true}
 )
     .then(() => console.log("MongoDB has been connected"))

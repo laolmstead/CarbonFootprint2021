@@ -6,7 +6,8 @@ import mongoose from 'mongoose';
 
 const energySchema = mongoose.Schema({
     name: {type: String, required: true},
-    cost: {type: Number, required: true}
+    date: {type: Date, required: true},
+    score: {type: Number, required: true}
 });
 
 
@@ -19,12 +20,13 @@ const Energy = mongoose.model("Energy", energySchema);
 /**
  * Create an energy
  * @param name
- * @param cost
+ * @param date
+ * @param score
  * @returns promise that resolves to json object for the document
  */
 
-const createEnergy = async (name, cost) => {
-    const energy = new Energy({name: name, cost: cost})
+const createEnergy = async (name, date, score) => {
+    const energy = new Energy({name: name, date: date, score: score})
     return energy.save()
 }
 
@@ -44,17 +46,18 @@ const findEnergy = async (filter, projection, limit) => {
 }
 
 /**
- * Replace the name and cost properties of the energy with the
+ * Replace the name, date, score properties of the energy with the
  * id value provided
  * @param _id
  * @param name
- * @param cost
+ * @param date
+ * @param score
  * @returns promise that resolves to the number of docs modified
  * 
  */
 
-const replaceEnergy = async (_id, name, cost) => {
-    const result = await Energy.replaceOne({_id: _id}, {name:name, cost: cost});
+const replaceEnergy = async (_id, name, date, score) => {
+    const result = await Energy.replaceOne({_id: _id}, {name:name, date: date, score: score});
     return result.nModified;
 }
 
