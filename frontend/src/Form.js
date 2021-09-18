@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { householdVehicles, naturalGas, electricity, fuel, propane } from "./carbon_calc.js"
+import './App.css';
 
 class Form extends React.Component {
   constructor(props) {
@@ -43,7 +44,8 @@ class Form extends React.Component {
 
   render() {
     return (
-        <div>
+      <body>
+        <div className="App">
             <h1>Your Data</h1>
             <form onSubmit={this.handleSubmit}>
                 <h5>Household Vehicle</h5>
@@ -106,6 +108,7 @@ class Form extends React.Component {
                 <button>Submit!</button>
             </form>
         </div>
+        </body>
     );
   }
 }

@@ -40,7 +40,7 @@ const AppBar = styled(MuiAppBar, {
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     '& .MuiDrawer-paper': {
-      position: 'relative',
+      position: 'fixed',
       whiteSpace: 'nowrap',
       width: drawerWidth,
       transition: theme.transitions.create('width', {
@@ -78,7 +78,7 @@ function DashboardContent() {
             
                 <CssBaseline />
                 
-                <AppBar position="absolute" open={open}>
+                <AppBar position="fixed" sx={{ width: `calc(100%)-${drawerWidth}`, ml: `${drawerWidth}px` }} open={open}>
                     <Toolbar
                         sx={{
                         pr: '24px', // keep right padding when drawer closed
@@ -101,6 +101,7 @@ function DashboardContent() {
                         variant="h6"
                         color="inherit"
                         noWrap
+                        align="center"
                         sx={{ flexGrow: 1 }}
                         >
                         Carbon Footprint
@@ -126,14 +127,19 @@ function DashboardContent() {
                 <List>{sideBar}</List>            
                 
             </Drawer>
-                <h1>Test</h1>
-                {/* <Form/> */}
-            </Box>
-        </ThemeProvider>
-       
-        {/* <div>
+        
+
+        </Box>
+        <Box
+        component="main"
+        sx={{bgcolor: 'background.default', paddingTop: 6}}
+        >
+        <div>
             <Form/>
-        </div>   */}
+        </div>
+        
+        </Box>
+        </ThemeProvider>
     </div>
   );
 }

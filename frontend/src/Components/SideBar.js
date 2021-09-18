@@ -32,7 +32,7 @@ export const sideBar = (
       </ListItem>
     </List>
     <List>
-      <ListItem button component={Link} to='/Profile' key='Stats' color="inherit">
+      <ListItem button component={Link} to='/' key='Stats' color="inherit">
         <ListItemIcon>
           <AnalyticsIcon/>
         </ListItemIcon>

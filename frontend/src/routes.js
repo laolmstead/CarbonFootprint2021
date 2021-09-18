@@ -4,7 +4,7 @@ import { Router, Switch, Route } from "react-router-dom";
 import App from './App'
 import Profile from './Profile/Profile'
 import history from './history'
-import Form from './Form.js'
+import Form from './FormwithSidebar.js'
 
 export default class Routes extends Component {
     render() {
