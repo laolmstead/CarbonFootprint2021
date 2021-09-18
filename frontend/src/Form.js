@@ -4,7 +4,7 @@ import { householdVehicles, naturalGas, electricity, fuel, propane } from "./car
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", miles_driven: "", miles_per_gallon: "", week_or_year: "", ng_usage: "0",electricity_usage:"0", fuel_oil_usage:"0", pp_usage:"0"};
+    this.state = { name: "", date="", miles_driven: "", miles_per_gallon: "", week_or_year: "", ng_usage: "0",electricity_usage:"0", fuel_oil_usage:"0", pp_usage:"0"};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -31,7 +31,7 @@ class Form extends Component {
             "propaneScore": propane(this.state.pp_usage)
         }
 
-        return fetch('http://localhost:5002/stored', {
+        return fetch(MONGO_DB_CONNECTION_STRING + '/energy', {
             method: 'POST',
             body: JSON.stringify(databody),
             headers: {
