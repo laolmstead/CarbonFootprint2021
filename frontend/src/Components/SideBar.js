@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 export const sideBar = (
   <div>
     <List>
-      <ListItem component={Link} button to='/' color="inherit" key='Add Activity'>
+      <ListItem component={Link} button to='/Form' color="inherit" key='Add Activity'>
         <ListItemIcon>
           <AddIcon/>
         </ListItemIcon>
