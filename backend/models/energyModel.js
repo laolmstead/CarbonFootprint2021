@@ -57,7 +57,7 @@ const findEnergy = async (filter, projection, limit) => {
  */
 
 const replaceEnergy = async (_id, name, date, score) => {
-    const result = await Energy.replaceOne({_id: _id}, {name:name, date: date, score: score});
+    const result = await Energy.replaceOne({_id: _id}, {name: name, date: date, score: score});
     return result.nModified;
 }
 

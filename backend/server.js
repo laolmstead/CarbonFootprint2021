@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
-import { energyRouter } from './routes/energy';
+import { energyRouter } from './routes/energy.js';
 import * as path from 'path';
 
 
@@ -33,10 +33,7 @@ db.once("open", () => {
 });
 
 // routes
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-
+app.use('/', energyRouter)
 
 
 app.listen(PORT, () => {

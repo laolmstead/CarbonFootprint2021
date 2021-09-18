@@ -42,7 +42,7 @@ energyRouter.put('/energy/:_id', (req, res) => {
     energy.replaceEnergy(req.params._id, req.body.name, req.body.date, req.body.score)
         .then(nModified => {
             if (nModified === 1) {
-                res.status(200).json({_id: req.params._id, name: req.params.name, date: req.params.date, score: req.params.score})
+                res.status(200).json({_id: req.params._id, name: req.body.name, date: req.body.date, score: req.body.score})
             } else {
                 res.status(404).json({Error: 'Request failed'})
             }
