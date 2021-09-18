@@ -2,6 +2,7 @@ import * as React from 'react';
 import './App.css';
 import Dashboard from './Components/Dashboard';
 import Form from './Form';
+import FormwithSidebar from './FormwithSidebar.js'
 
 
 class App extends React.Component {
@@ -11,8 +12,10 @@ class App extends React.Component {
   return (
     <div className="App">
       <header className="App-header">
+
         {/*<Form/>*/}
         <Dashboard/>
+
       </header>
     </div>
   );
