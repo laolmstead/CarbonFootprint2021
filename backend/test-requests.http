@@ -4,25 +4,28 @@ content-type: application/json
 
 {
     "name": "Electricity",
-    "cost": 20
+    "date": "2021-09-18",
+    "score": 10
 }
 
-###
+### returns all things posted
 GET http://localhost:3000/energy HTTP/1.1
 
 
-###
+### replace id with electricity id - edits score
 
-PUT http://localhost:3000/energy/6118986a5163743368fe0934 HTTP/1.1
+PUT http://localhost:3000/energy/6145729b06363b22511d3326 HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Electricity",
-    "cost": 25
+    "name": "Electricity - test",
+    "date":"2021-09-17",
+    "score": 25
 }
 
-###
-DELETE http://localhost:3000/energy/6118986a5163743368fe0934 HTTP/1.1
+### replace id w id to delete
+
+DELETE http://localhost:3000/energy/6145708607945e223785007c HTTP/1.1
 
 
 ###
@@ -31,7 +34,8 @@ content-type: application/json
 
 {
     "name": "Natural Gas",
-    "cost": 22
+    "date": "2021-09-18",
+    "score": 22
     
 }
 
@@ -41,7 +45,8 @@ content-type: application/json
 
 {
     "name": "Propane",
-    "cost": 10
+    "date": "2021-09-18",
+    "score": 10
     
 }
 
@@ -51,5 +56,6 @@ content-type: application/json
 
 {
     "name": "Fuel Oil",
-    "cost": 12
+    "date": "2021-09-18",
+    "score": 12
 }

@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
-import { energyRouter } from './routes/energy';
+import { energyRouter } from './routes/energy.js';
 import * as path from 'path';
 
 
@@ -17,11 +17,11 @@ import * as path from 'path';
 const app = express()
 
 // process.env.PORT is for mongo compass usage. links to .env file which contains url
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 // database connection
 mongoose.connect(
-    "mongodb://localhost:27017/carbon_db",
+    process.env.MONGO_DB_CONNECTION_STRING || "mongodb://localhost:27017/carbon_db",
     {useNewUrlParser: true, useUnifiedTopology: true}
 )
     .then(() => console.log("MongoDB has been connected"))
@@ -33,10 +33,7 @@ db.once("open", () => {
 });
 
 // routes
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-
+app.use('/', energyRouter)
 
 
 app.listen(PORT, () => {
