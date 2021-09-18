@@ -1,8 +1,4 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
-import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
@@ -14,52 +10,59 @@ import PersonIcon from '@mui/icons-material/Person';
 import InfoIcon from '@mui/icons-material/Info';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { Link } from 'react-router-dom';
 
-const drawerWidth = 240;
 
-export default function SideBar() {
-  return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box',
-          },
-        }}
-        variant="permanent"
-        anchor="left"
-      >
-        <Toolbar />
-        <Divider />
-        <List>
-          {['Add Activity', 'Profile', 'Stats', 'Resources'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index === 0 ? <AddIcon/> 
-                : index === 1 ? <PersonIcon /> 
-                : index === 2 ? <AnalyticsIcon/>
-                : <InfoIcon/> }
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['Settings', 'Log out'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <SettingsIcon /> : <LogoutIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-    </Box>
-  );
-}
+export const sideBar = (
+  <div>
+    <List>
+      <ListItem component={Link} button to='/' color="inherit" key='Add Activity'>
+        <ListItemIcon>
+          <AddIcon/>
+        </ListItemIcon>
+        <ListItemText primary='Add Activity' />
+      </ListItem>
+    </List>
+    <List>
+      <ListItem button component={Link} to='/Profile' key='Profile' color="inherit">
+        <ListItemIcon>
+          <PersonIcon/>
+        </ListItemIcon>
+        <ListItemText primary='Profile' />
+      </ListItem>
+    </List>
+    <List>
+      <ListItem button component={Link} to='/Profile' key='Stats' color="inherit">
+        <ListItemIcon>
+          <AnalyticsIcon/>
+        </ListItemIcon>
+        <ListItemText primary='Stats' />
+      </ListItem>
+    </List>
+    <List>
+      <ListItem button component={Link} to='/Profile' color="inherit" key='Resources'>
+        <ListItemIcon>
+          <InfoIcon/>
+        </ListItemIcon>
+        <ListItemText primary='Resources' />
+      </ListItem>
+    </List>
+  <Divider />
+    <List>
+      <ListItem button component={Link} to='/Profile' color="inherit" key='Settings'>
+        <ListItemIcon>
+          <SettingsIcon />
+        </ListItemIcon>
+        <ListItemText primary='Settings' />
+      </ListItem>
+    </List>
+    <List>
+      <ListItem button component={Link} to='/Profile' color="inherit"key='Log Out'>
+        <ListItemIcon>
+          <LogoutIcon/>
+        </ListItemIcon>
+        <ListItemText primary='Log Out' />
+      </ListItem>
+    </List>
+  </div>
+);
