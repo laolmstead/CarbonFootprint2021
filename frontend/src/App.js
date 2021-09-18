@@ -1,6 +1,8 @@
 import * as React from 'react';
 import './App.css';
 import Dashboard from './Components/Dashboard';
+import Form from './Form';
+
 
 class App extends React.Component {
 
@@ -9,7 +11,8 @@ class App extends React.Component {
   return (
     <div className="App">
       <header className="App-header">
-        <Dashboard/>
+        <Form/>
+        {/* <Dashboard/> */}
       </header>
     </div>
   );
