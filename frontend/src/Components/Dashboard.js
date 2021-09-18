@@ -17,6 +17,9 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { CarbonLineChart } from './LineChart';
 import { darkTheme } from './ThemeHandler';
 import { sideBar } from './SideBar';
+import Summary from './CarbonSummary';
+import Score from './CarbonScore'
+import CarbonPieChart from './PieChart';
 
 const drawerWidth = 240;
 
@@ -134,8 +137,8 @@ function DashboardContent() {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-              {/* Chart */}
-              <Grid item xs={12} md={8} lg={9}>
+              {/* Carbon Summary */}
+              <Grid item xs={12} md={6} lg={6}>
                 <Paper
                   sx={{
                     p: 2,
@@ -143,25 +146,58 @@ function DashboardContent() {
                     flexDirection: 'column',
                     height: 240,
                   }}
+                >
+                  <Summary />
+                </Paper>
+              </Grid>
+              {/* Carbon Score */}
+              <Grid item xs={12} md={6} lg={6}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: 240,
+                  }}
+                >
+                  <Score />
+                </Paper>
+              </Grid>
+              {/* Carbon Score */}
+              <Grid item xs={12} md={5} lg={4}>
+                <Paper
+                  sx={{
+                    bgcolor: 'background.paper',
+                    boxShadow: 1,
+                    borderRadius: 1,
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: 240,
+                  }}
+                >
+                  <CarbonPieChart />
+                </Paper>
+              </Grid>
+              {/* Chart */}
+              <Grid item xs={12} md={7} lg={8}>
+                <Box                   
+                sx={{
+                    bgcolor: 'background.paper',
+                    boxShadow: 1,
+                    borderRadius: 1,
+                }}>
+                  <Paper
+                    sx={{
+                      p: 2,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      height: 240,
+                    }}
                 >
                   <CarbonLineChart />
                 </Paper>
-              </Grid>
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                </Paper>
-              </Grid>
-              <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                <CarbonLineChart />
-                </Paper>
+                </Box>
               </Grid>
             </Grid>
           </Container>
