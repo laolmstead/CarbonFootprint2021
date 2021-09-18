@@ -4,7 +4,7 @@ import { householdVehicles, naturalGas, electricity, fuel, propane } from "./car
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", date="", miles_driven: "", miles_per_gallon: "", week_or_year: "", ng_usage: "0",electricity_usage:"0", fuel_oil_usage:"0", pp_usage:"0"};
+    this.state = { name: "", date:"", miles_driven: "", miles_per_gallon: "", week_or_year: "", ng_usage: "0",electricity_usage:"0", fuel_oil_usage:"0", pp_usage:"0"};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -24,14 +24,17 @@ class Form extends Component {
 
         let databody = {
             "name": this.state.name,
+            "date": this.state.date,
             "vehicleScore": householdVehicles(this.state.miles_driven),
             "naturalGasScore": naturalGas(this.state.ng_usage),
             "electricityScore": electricity(this.state.electricity_usage),
             "fuelScore": fuel(this.state.fuel_oil_usage),
-            "propaneScore": propane(this.state.pp_usage)
+            "propaneScore": propane(this.state.pp_usage),
+            "totalScore": householdVehicles(this.state.miles_driven) + naturalGas(this.state.ng_usage) 
+            + electricity(this.state.electricity_usage) + fuel(this.state.fuel_oil_usage) + propane(this.state.pp_usage)
         }
 
-        return fetch(MONGO_DB_CONNECTION_STRING + '/energy', {
+        return fetch(process.env.MONGO_DB_CONNECTION_STRING + '/energy', {
             method: 'POST',
             body: JSON.stringify(databody),
             headers: {
