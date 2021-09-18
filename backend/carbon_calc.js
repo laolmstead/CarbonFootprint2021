@@ -3,8 +3,8 @@
 const { Code } = require("mongodb")
 
 // Household vehicles
-vehicleMilesDriven = user input
-MILES_PER_GALLON = 21.6 // constant defined by the EPA
+vehicleMilesDriven = req.body.Miles_Driven
+MILES_PER_GALLON = req.body.Miles_Per_Gallon // 21.6 // constant defined by the EPA
 weekOrYear = 1 // or 2
 NON_CO2_VEHICLE_EMISSIONS_RATIO = 1.01
 EF_PASSENGER_VEHICLE = 19.6

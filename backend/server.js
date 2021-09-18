@@ -35,6 +35,9 @@ db.once("open", () => {
 // routes
 app.use('/', energyRouter)
 
+app.post('/calcScore', (req, res) => {
+    console.log(req);
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
