@@ -62,6 +62,17 @@ const replaceEnergy = async (_id, name, date, score) => {
 }
 
 /**
+ * Update the user based on the filter
+ * @param param
+ * @param updatedValues
+ * @returns nMofified
+ */
+const updateEnergy = async(filter, updateValues) => {
+    const result = await Energy.updateOne(filter, updateValues);
+    return result.nModified
+}
+
+/**
  * Deletes the energy with the provided id value
  * @param _id
  * @returns promise that resolves to the count of deleted documents
@@ -73,4 +84,4 @@ const deleteById = async (_id) => {
     return result.deletedCount;
 }
 
-export {deleteById, replaceEnergy, findEnergy, createEnergy}
+export {deleteById, replaceEnergy, findEnergy, createEnergy, updateEnergy}
