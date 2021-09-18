@@ -14,7 +14,7 @@ export function householdVehicles(vehicleMilesDriven){
     var NON_CO2_VEHICLE_EMISSIONS_RATIO = 1.01
     var EF_PASSENGER_VEHICLE = 19.6
 
-    let vehicleScore = (vehicleMilesDriven * 52) * EF_PASSENGER_VEHICLE * NON_CO2_VEHICLE_EMISSIONS_RATIO;
+    let vehicleScore = (vehicleMilesDriven * 52 / MILES_PER_GALLON) * EF_PASSENGER_VEHICLE * NON_CO2_VEHICLE_EMISSIONS_RATIO;
     return vehicleScore    
 }
 
@@ -30,7 +30,7 @@ export function naturalGas(NATURAL_GAS_USAGE){
 }
  
 // Electricity
-function electricity(ELECTRICITY_USAGE){    
+export function electricity(ELECTRICITY_USAGE){    
     const ELECTRICITY_UNITS = 1 // 2
     const COST_PER_KWH = 0.1188 // $ / kwh
     const e_FACTOR_VALUE = 1// based on zip code... need a table to look that up. Values are in the spreadsheet
@@ -38,7 +38,7 @@ function electricity(ELECTRICITY_USAGE){
 }
 
 //Fuel Oil
-function fuel(FUEL_USAGE){
+export function fuel(FUEL_USAGE){
     const FUEL_UNITS = 1 // 2
     const FUEL_OIL_COST = 4.02 // $ per gallon
     const EF_FUEL_OIL_GALLON = 22.61  // lbs CO2 / gallon of fuel oil
@@ -47,16 +47,16 @@ function fuel(FUEL_USAGE){
 }
 
 //Propane
-function propane(PROPANE_USAGE){
+export function propane(PROPANE_USAGE){
     const PROPANE_UNITS = 1 // 2
-    const PROPANE_COST = 4.02 // $ per gallon
-    const EF_PROPANE = 22.61  // lbs CO2 / gallon of fuel oil
+    const PROPANE_COST = 2.47 // $ per gallon
+    const EF_PROPANE = 12.43  // lbs CO2 / gallon of fuel oil
  
     let propaneScore = (PROPANE_USAGE / PROPANE_COST) * EF_PROPANE * 12
 }
 
 // Waste
-function waste(recycleMetal, recyclePlastic, recycleGlass, recycleNewspaper, recycleMagazine){
+export function waste(recycleMetal, recyclePlastic, recycleGlass, recycleNewspaper, recycleMagazine){
     const AVERAGE_WASTE_EMISSIONS = 692 // lbs CO2e / year / person from waste
     const METAL_RECYCLING_AVOIDED_EMISSIONS = -89.38
     const PLASTIC_RECYCLING_AVOIDED_EMISSIONS = -35.56
