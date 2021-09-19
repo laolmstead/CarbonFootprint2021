@@ -7,14 +7,13 @@ function calculateFootprint(){
     let totalEmissions = 100//hhVehiclesEstimate + ngScore + fuelScore + elecScore + propaneScore + totalAfterRecylcing
 }
 // Household vehicles
-export function householdVehicles(vehicleMilesDriven){
+export function householdVehicles(vehicleMilesDriven, miles_per_gallon){
 
-    var MILES_PER_GALLON = 21.6; // constant defined by the EPA
-    var weekOrYear = 1 // or 2
+    // var MILES_PER_GALLON = 21.6; // constant defined by the EPA
     var NON_CO2_VEHICLE_EMISSIONS_RATIO = 1.01
     var EF_PASSENGER_VEHICLE = 19.6
 
-    let vehicleScore = (vehicleMilesDriven * 52 / MILES_PER_GALLON) * EF_PASSENGER_VEHICLE * NON_CO2_VEHICLE_EMISSIONS_RATIO;
+    let vehicleScore = (vehicleMilesDriven * 52) / miles_per_gallon * EF_PASSENGER_VEHICLE * NON_CO2_VEHICLE_EMISSIONS_RATIO;
     return vehicleScore    
 }
 
