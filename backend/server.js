@@ -25,7 +25,7 @@ const PORT = process.env.PORT || 3000
 
 // database connection to mongodb atlas - uses env username and password in the below string
 mongoose.connect(
-    `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.o8qff.mongodb.net/Carbon?retryWrites=true&w=majority`,
+    procceess.env.MONGODB_CONNECTION_STRING,
     {useNewUrlParser: true, useUnifiedTopology: true}
 )
     .then(() => console.log("MongoDB has been connected"))
