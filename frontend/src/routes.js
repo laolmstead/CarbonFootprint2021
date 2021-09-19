@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import { Router, Switch, Route } from "react-router-dom";
 
 import App from './App'
-import Profile from './Profile/Profile'
+import Profile from './ProfileWithSidebar'
 import history from './history'
 import Form from './FormwithSidebar.js'
 

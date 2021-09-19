@@ -1,44 +1,11 @@
 import * as React from 'react';
 import "./Profile.css";
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import PersonIcon from '@mui/icons-material/Person';
-import AppBar from '@mui/material/AppBar';
-import Typography from '@mui/material/Typography';
-import Toolbar from '@mui/material/Toolbar';
-import CssBaseline from '@mui/material/CssBaseline';
-
-let drawerWidth = 240;
 
 export default function Form() {
 
-  return (        
+  return (     
+    <body>   
     <div className="Profile">
-      <header className="Profile-header">
-      <CssBaseline />
-        <AppBar
-              position="fixed"
-              sx={{ width: `calc(100%)`, ml: `${drawerWidth}px` }}
-            >
-              <Toolbar>
-                <Typography variant="h6" noWrap component="div">
-                  Profile Information
-                </Typography>
-              </Toolbar>
-            </AppBar>
-        </header>
-        <body>
-        <Box
-        component="main"
-        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 6 }}
-        >
         <h1>Gas Usage</h1>
         <form className="Profile-form" action="">
             <p>How much natural gas does your household use per month (dollars)?</p>
@@ -136,9 +103,8 @@ export default function Form() {
         <footer>
           2021 BeaverHacks Fall Hackathon
         </footer>
-        </Box>
-      </body>
     </div>
+    </body>
   );
   
 }
