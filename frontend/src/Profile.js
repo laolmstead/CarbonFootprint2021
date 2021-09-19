@@ -39,7 +39,8 @@ export default function Form() {
                 name='pp_usage'
                 placeholder='0'
                 />
-
+            </Grid>
+            <Grid item xs={4}>
             <h1>Vehicles</h1>
 
             <h3>Car 1</h3>
@@ -49,8 +50,7 @@ export default function Form() {
             <p>How many miles does this car get to the gallon?</p>
             <input type='number' placeholder="0" name="Miles_Per_Gallon_1" placeholder="0"/>
             <p></p>
-            </Grid>
-            <Grid item xs={4}>
+            
             <h3>Car 2</h3>
             <h5>Current Emissions</h5>
             <p>What is the average amount of miles driven by this vehicle per week?</p>
