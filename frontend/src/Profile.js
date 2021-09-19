@@ -104,12 +104,13 @@ export default function Form() {
             <option value="True">Yes</option>
             <option value="False">No</option>
             </select>
+            </Grid>
+            </Grid>
+
             <p/>
             <input type="submit"/>
 
-            </Grid>
-        </Grid>
-
+            
         </form>
         <footer>
           2021 BeaverHacks Fall Hackathon
