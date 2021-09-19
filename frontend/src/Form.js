@@ -18,11 +18,13 @@ class Form extends React.Component {
 
     handleSubmit(evt){
         evt.preventDefault();
+        // alert(this.state.miles_driven)
 
+        alert(householdVehicles(this.state.miles_driven, this.state.miles_per_gallon))
         let databody = {
             "name": this.state.name,
             "date": this.state.date,
-            "vehicleScore": householdVehicles(this.state.miles_driven),
+            "vehicleScore": householdVehicles(this.state.miles_driven, this.state.miles_per_gallon),
             "naturalGasScore": naturalGas(this.state.ng_usage),
             "electricityScore": electricity(this.state.electricity_usage),
             "fuelScore": fuel(this.state.fuel_oil_usage),
