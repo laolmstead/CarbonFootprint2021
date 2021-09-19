@@ -8,7 +8,7 @@ export default function Form() {
     <body>   
     <div className="Profile">
       <form className="Profile-form" action="">
-        <Grid container spacing={2}>
+        <Grid container spacing={0}>
           <Grid item xs={4}>
             <h1>Gas Usage</h1>
         
@@ -105,10 +105,10 @@ export default function Form() {
             <option value="False">No</option>
             </select>
             <p/>
+            <input type="submit"/>
+
             </Grid>
         </Grid>
-            <input type="submit"/>
-            <p/>
 
         </form>
         <footer>
