@@ -20,38 +20,42 @@ export function householdVehicles(vehicleMilesDriven, miles_per_gallon){
 
 // Natural Gas
 export function naturalGas(NATURAL_GAS_USAGE){
-    const NATURAL_GAS_UNITS = 1 // 2, or 3
+
     const NATURAL_GAS_COST_1000CF = 10.68 // dollars / 1000 cubic feet
     const EF_NATURAL_GAS = 119.58 // lbs CO2 / 1000 cubic feet of natural gas
-    const EF_NATURAL_GAS_THERM = 11.7 // lbs CO2 / therm natural gas
+
 
     var ngScore = NATURAL_GAS_USAGE / NATURAL_GAS_COST_1000CF * EF_NATURAL_GAS * 12
+    return ngScore
 }
  
 // Electricity
 export function electricity(ELECTRICITY_USAGE){    
-    const ELECTRICITY_UNITS = 1 // 2
+    
     const COST_PER_KWH = 0.1188 // $ / kwh
     const e_FACTOR_VALUE = 1// based on zip code... need a table to look that up. Values are in the spreadsheet
     let elecScore = (ELECTRICITY_USAGE / COST_PER_KWH) * e_FACTOR_VALUE * 12
+
+    return elecScore
 }
 
 //Fuel Oil
 export function fuel(FUEL_USAGE){
-    const FUEL_UNITS = 1 // 2
+    
     const FUEL_OIL_COST = 4.02 // $ per gallon
     const EF_FUEL_OIL_GALLON = 22.61  // lbs CO2 / gallon of fuel oil
 
     let fuelScore = (FUEL_USAGE / FUEL_OIL_COST) * EF_FUEL_OIL_GALLON * 12
+    return fuelScore
 }
 
 //Propane
 export function propane(PROPANE_USAGE){
-    const PROPANE_UNITS = 1 // 2
     const PROPANE_COST = 2.47 // $ per gallon
     const EF_PROPANE = 12.43  // lbs CO2 / gallon of fuel oil
  
     let propaneScore = (PROPANE_USAGE / PROPANE_COST) * EF_PROPANE * 12
+    return propaneScore
 }
 
 // Waste
