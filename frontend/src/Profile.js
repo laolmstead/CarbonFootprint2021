@@ -1,13 +1,17 @@
 import * as React from 'react';
 import "./Profile.css";
+import Grid from '@mui/material/Grid';
 
 export default function Form() {
 
   return (     
     <body>   
     <div className="Profile">
-        <h1>Gas Usage</h1>
-        <form className="Profile-form" action="">
+      <form className="Profile-form" action="">
+        <Grid container spacing={2}>
+          <Grid item xs={4}>
+            <h1>Gas Usage</h1>
+        
             <p>How much natural gas does your household use per month (dollars)?</p>
                 <input
                 type='number'
@@ -45,6 +49,8 @@ export default function Form() {
             <p>How many miles does this car get to the gallon?</p>
             <input type='number' placeholder="0" name="Miles_Per_Gallon_1" placeholder="0"/>
             <p></p>
+            </Grid>
+            <Grid item xs={4}>
             <h3>Car 2</h3>
             <h5>Current Emissions</h5>
             <p>What is the average amount of miles driven by this vehicle per week?</p>
@@ -68,6 +74,8 @@ export default function Form() {
             </select>
             <div id="parentDiv"></div>
 
+            </Grid>
+            <Grid item xs={4}>
             <h1>Waste</h1>
 
             <h2>Current Emissions</h2>
@@ -97,12 +105,16 @@ export default function Form() {
             <option value="False">No</option>
             </select>
             <p/>
+            </Grid>
+        </Grid>
             <input type="submit"/>
             <p/>
+
         </form>
         <footer>
           2021 BeaverHacks Fall Hackathon
         </footer>
+        
     </div>
     </body>
   );

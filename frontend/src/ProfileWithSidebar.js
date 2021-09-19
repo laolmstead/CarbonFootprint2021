@@ -78,7 +78,7 @@ function DashboardContent() {
             
                 <CssBaseline />
                 
-                <AppBar position="relative" sx={{ width: `calc(100%)-${drawerWidth}`, ml: `${drawerWidth}px` }} open={open}>
+                <AppBar position="fixed" sx={{ width: `calc(100%)-${drawerWidth}`, ml: `${drawerWidth}px` }} open={open}>
                     <Toolbar
                         position="fixed"
                         sx={{
