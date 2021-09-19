@@ -78,8 +78,9 @@ function DashboardContent() {
             
                 <CssBaseline />
                 
-                <AppBar position="fixed" sx={{ width: `calc(100%)-${drawerWidth}`, ml: `${drawerWidth}px` }} open={open}>
+                <AppBar position="relative" sx={{ width: `calc(100%)-${drawerWidth}`, ml: `${drawerWidth}px` }} open={open}>
                     <Toolbar
+                        position="fixed"
                         sx={{
                         pr: '24px', // keep right padding when drawer closed
                         }}
@@ -90,7 +91,7 @@ function DashboardContent() {
                         aria-label="open drawer"
                         onClick={toggleDrawer}
                         sx={{
-                            marginRight: '36px',
+                            marginRight: '-30px',
                             ...(open && { display: 'none' }),
                         }}
                         >
@@ -107,6 +108,15 @@ function DashboardContent() {
                         Carbon Footprint
                         </Typography>
                     </Toolbar>
+                    <Box
+        component="main"
+        sx={{bgcolor: 'background.default', paddingTop: 0}}
+        >
+        <div>
+            <Form/>
+        </div>
+        
+        </Box>
                 </AppBar>
             <Drawer variant="permanent" open={open}>               
                 <Toolbar
@@ -130,15 +140,7 @@ function DashboardContent() {
         
 
         </Box>
-        <Box
-        component="main"
-        sx={{bgcolor: 'background.default', paddingTop: 6}}
-        >
-        <div>
-            <Form/>
-        </div>
-        
-        </Box>
+
         </ThemeProvider>
     </div>
   );
