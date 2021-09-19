@@ -8,8 +8,6 @@ export default function Form() {
     <body>   
     <div className="Profile">
       <form className="Profile-form" action="">
-        <Grid container spacing={0}>
-          <Grid item xs={4}>
             <h1>Gas Usage</h1>
         
             <p>How much natural gas does your household use per month (dollars)?</p>
@@ -39,8 +37,6 @@ export default function Form() {
                 name='pp_usage'
                 placeholder='0'
                 />
-            </Grid>
-            <Grid item xs={4}>
             <h1>Vehicles</h1>
 
             <h3>Car 1</h3>
@@ -74,8 +70,6 @@ export default function Form() {
             </select>
             <div id="parentDiv"></div>
 
-            </Grid>
-            <Grid item xs={4}>
             <h1>Waste</h1>
 
             <h2>Current Emissions</h2>
@@ -104,8 +98,6 @@ export default function Form() {
             <option value="True">Yes</option>
             <option value="False">No</option>
             </select>
-            </Grid>
-            </Grid>
 
             <p/>
             <input type="submit"/>
