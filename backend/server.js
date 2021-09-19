@@ -14,14 +14,18 @@ import * as path from 'path';
  app.use(cors())
  app.use(bodyParser.json()) */
 
+// setting .env files on server
+let result = dotenv.config({path: '../.env'}) 
+console.log(result)
+ 
 const app = express()
 
-// process.env.PORT is for mongo compass usage. links to .env file which contains url
+// process.env.PORT is for hosting. will use any port available on heroku etc
 const PORT = process.env.PORT || 3000
 
-// database connection
+// database connection to mongodb atlas - uses env username and password in the below string
 mongoose.connect(
-    process.env.MONGO_DB_CONNECTION_STRING || "mongodb://localhost:27017/carbon_db",
+    `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.o8qff.mongodb.net/Carbon?retryWrites=true&w=majority`,
     {useNewUrlParser: true, useUnifiedTopology: true}
 )
     .then(() => console.log("MongoDB has been connected"))
