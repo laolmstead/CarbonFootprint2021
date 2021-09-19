@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { householdVehicles, naturalGas, electricity, fuel, propane } from "./carbon_calc.js"
 import './App.css';
+import Grid from '@mui/material/Grid';
 
 class Form extends React.Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class Form extends React.Component {
             + electricity(this.state.electricity_usage) + fuel(this.state.fuel_oil_usage) + propane(this.state.pp_usage)
         }
 
-        return fetch('http://localhost:8000/energy', {
+        return fetch('/energy', {
             method: 'POST',
             body: JSON.stringify(databody),
             headers: {
@@ -48,9 +49,12 @@ class Form extends React.Component {
   render() {
     return (
       <body>
+        
         <div className="App">
             <h1>Your Data</h1>
             <form onSubmit={this.handleSubmit}>
+            <Grid container spacing={2}>
+            <Grid item xs={6}>
                 <h5>Household Vehicle</h5>
                 <p>What is the average amount of miles driven by this vehicle per week?</p>
                 <input
@@ -69,7 +73,8 @@ class Form extends React.Component {
                 value={this.state.miles_per_gallon}
                 onChange={this.handleChange}
                 />
-
+                </Grid>
+                <Grid item xs={6}>
                 <h5>Home Energy</h5>  
                                
                 <p>How much natural gas does your household use per month (dollars)?</p>
@@ -108,6 +113,8 @@ class Form extends React.Component {
                 onChange={this.handleChange}
                 />
                 <p/>
+                </Grid>
+                </Grid>
                 <button>Submit!</button>
             </form>
         </div>
