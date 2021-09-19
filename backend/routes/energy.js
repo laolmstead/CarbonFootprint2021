@@ -5,10 +5,10 @@ const energyRouter = express();
 energyRouter.use(express.json());
 
 /**
- * Creates a new energy with the name, date, and score provided
+ * Creates a new energy with the name, date, vehicleScore, naturalGasScore, electricityScore, fuelScore, propaneScore, and totalScore provided
  */
 energyRouter.post('/energy', (req, res) => {
-    energy.createEnergy(req.body.name, req.body.date, req.body.score)
+    energy.createEnergy(req.body.name, req.body.date, req.body.vehicleScore, req.body.naturalGasScore, req.body.electricityScore, req.body.fuelScore, req.body.propaneScore, req.body.totalScore)
     .then(energy => {
         res.status(201).json(energy)
     })
@@ -23,7 +23,7 @@ energyRouter.post('/energy', (req, res) => {
  * return all energy that has been posted
  */
 energyRouter.get('/energy', (req, res) => {
-    if (req.query._id === undefined && req.query.name === undefined && req.query.date === undefined && req.query.score === undefined) {
+    if (req.query._id === undefined && req.query.name === undefined && req.query.date === undefined) {
         const filter = {}
         energy.findEnergy(filter, '', 0)
             .then(energy => {
@@ -56,18 +56,7 @@ energyRouter.get('/energy', (req, res) => {
                 console.error(error);
                 res.status(400).json({Error: 'Request failed'})
             });
-    } else if (req.query.score != undefined) {
-        const filter = {score: req.query.score}
-        energy.findEnergy(filter, '', 0)
-            .then(energy => {
-                console.log(energy)
-                res.status(200).json(energy)
-            })
-            .catch(error => {
-                console.error(error)
-                res.status(400).json({Error: 'Request failed'})
-            });
-    } 
+    }
 });
 
 /**
@@ -76,9 +65,9 @@ energyRouter.get('/energy', (req, res) => {
  */
 
 energyRouter.put('/energy', (req, res) => {
-    if (req.query._id != undefined && req.query.name != undefined && req.query.date != undefined && req.query.score != undefined) {
+    if (req.query._id != undefined && req.query.name != undefined && req.query.date != undefined && req.query.vehicleScore != undefined && req.query.naturalGasScore != undefined && req.query.electricityScore != undefined && req.query.fuelScore != undefined && req.query.propaneScore != undefined && req.query.totalScore != undefined) {
         const filter = {_id: req.query._id}
-        energy.replaceEnergy(filter, req.query.name, req.query.date, req.query.score)
+        energy.replaceEnergy(filter, req.query.name, req.query.date, req.query.vehicleScore, req.query.naturalGasScore, req.query.electricityScore, req.query.fuelScore, req.query.propaneScore, req.query.totalScore)
             .then(nModified => {
                 console.log(nModified)
                 res.status(200).json(energy)
@@ -92,7 +81,12 @@ energyRouter.put('/energy', (req, res) => {
         let items_id = {}
         let items_name = {}
         let items_date = {}
-        let items_score = {}
+        let items_vehicleScore = {}
+        let items_naturalGasScore = {}
+        let items_electricityScore = {}
+        let items_fuelScore = {}
+        let items_propaneScore = {}
+        let items_totalScore = {}
         let items = {}
         for (const property in req.query) {
             console.log(`${property}: ${req.query[property]}`)
@@ -106,8 +100,24 @@ energyRouter.put('/energy', (req, res) => {
                 } else if ([property] == 'date') {
                     items_date[[property]] = req.query[property]
                     Object.assign(items, items_date)
-                } else if ([property] == 'score') {
-                    items_score[[property]] = req.query[property]
+                } else if ([property] == 'vehicleScore') {
+                    items_vehicleScore[[property]] = req.query[property]
+                    Object.assign(items, items_vehicleScore)
+                } else if ([property] == 'naturalGasScore') {
+                    items_naturalGasScore[[property]] = req.query[property]
+                    Object.assign(items, items_naturalGasScore)
+                } else if ([property] == 'electricityScore') {
+                    items_electricityScore[[property]] = req.query[property]
+                    Object.assign(items, items_electricityScore)
+                } else if ([property] == 'fuelScore') {
+                    items_fuelScore[[property]] = req.query[property]
+                    Object.assign(items, items_fuelScore)
+                } else if([property] == 'propaneScore') {
+                    items_propaneScore[[property]] = req.query[property]
+                    Object.assign(items, items_propaneScore)
+                } else if ([property] == 'totalScore') {
+                    items_totalScore[[property]] = req.query[property]
+                    Object.assign(items, items_totalScore)
                 }
             }
         }

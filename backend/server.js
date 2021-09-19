@@ -21,7 +21,7 @@ console.log(result)
 const app = express()
 
 // process.env.PORT is for hosting. will use any port available on heroku etc
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 8000
 
 // database connection to mongodb atlas - uses env username and password in the below string
 mongoose.connect(

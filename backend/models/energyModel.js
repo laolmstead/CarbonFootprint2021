@@ -7,7 +7,12 @@ import mongoose from 'mongoose';
 const energySchema = mongoose.Schema({
     name: {type: String, required: true},
     date: {type: Date, required: true},
-    score: {type: Number, required: true}
+    vehicleScore: {type: Number, required: true},
+    naturalGasScore: {type: Number, required: true},
+    electricityScore: {type: Number, required: true},
+    fuelScore: {type: Number, required: true},
+    propaneScore: {type: Number, required: true},
+    totalScore: {type: Number, required: true}
 });
 
 
@@ -21,12 +26,18 @@ const Energy = mongoose.model("Energy", energySchema);
  * Create an energy
  * @param name
  * @param date
- * @param score
+ * @param vehicleScore
+ * @param naturalGasScore
+ * @param electricityScore
+ * @param fuelScore
+ * @param propaneScore
+ * @param totalScore
  * @returns promise that resolves to json object for the document
  */
 
-const createEnergy = async (name, date, score) => {
-    const energy = new Energy({name: name, date: date, score: score})
+const createEnergy = async (name, date, vehicleScore, naturalGasScore, electricityScore, fuelScore, propaneScore, totalScore) => {
+    const energy = new Energy(
+        {name: name, date: date, vehicleScore: vehicleScore, naturalGasScore: naturalGasScore, electricityScore: electricityScore, fuelScore: fuelScore, propaneScore: propaneScore, totalScore: totalScore})
     return energy.save()
 }
 
@@ -50,14 +61,18 @@ const findEnergy = async (filter, projection, limit) => {
  * id value provided
  * @param _id
  * @param name
- * @param date
- * @param score
+ * @param vehicleScore
+ * @param naturalGasScore
+ * @param electricityScore
+ * @param fuelScore
+ * @param propaneScore
+ * @param totalScore
  * @returns promise that resolves to the number of docs modified
  * 
  */
 
-const replaceEnergy = async (_id, name, date, score) => {
-    const result = await Energy.replaceOne({_id: _id}, {name: name, date: date, score: score});
+const replaceEnergy = async (_id, name, date, vehicleScore, naturalGasScore, electricityScore, fuelScore, propaneScore, totalScore) => {
+    const result = await Energy.replaceOne({_id: _id}, {name: name, date: date, vehicleScore: vehicleScore, naturalGasScore: naturalGasScore, electricityScore: electricityScore, fuelScore: fuelScore, propaneScore: propaneScore, totalScore: totalScore});
     return result.nModified;
 }
 

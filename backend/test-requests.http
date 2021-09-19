@@ -1,61 +1,92 @@
 ###
-POST http://localhost:3000/energy HTTP/1.1
+POST http://localhost:8000/energy HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Electricity",
+    "name": "Bob",
     "date": "2021-09-18",
-    "score": 10
+    "vehicleScore": 2, 
+    "naturalGasScore": 2, 
+    "electricityScore": 2, 
+    "fuelScore": 2, 
+    "propaneScore": 2, 
+    "totalScore": 10
 }
 
 ### returns all things posted
-GET http://localhost:3000/energy HTTP/1.1
+GET http://localhost:8000/energy HTTP/1.1
 
+### returns all posts with same name
+GET http://localhost:8000/energy?name=Bob HTTP/1.1
+
+
+### returns all posts with same date
+GET http://localhost:8000/energy?date=2021-09-18 HTTP/1.1
 
 ### replace id with electricity id - edits score
 
-PUT http://localhost:3000/energy/6145729b06363b22511d3326 HTTP/1.1
+PUT http://localhost:8000/energy/6145729b06363b22511d3326 HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Electricity - test",
+    "name": "Bill",
     "date":"2021-09-17",
-    "score": 25
+    "vehicleScore": 2, 
+    "naturalGasScore": 2, 
+    "electricityScore": 2, 
+    "fuelScore": 2, 
+    "propaneScore": 2, 
+    "totalScore": 10
 }
 
 ### replace id w id to delete
 
-DELETE http://localhost:3000/energy/6145708607945e223785007c HTTP/1.1
+DELETE http://localhost:8000/energy/614763050abf213d69c805cc HTTP/1.1
 
 
 ###
-POST http://localhost:3000/energy HTTP/1.1
+POST http://localhost:8000/energy HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Natural Gas",
+    "name": "Joe",
     "date": "2021-09-18",
-    "score": 22
+    "vehicleScore": 2, 
+    "naturalGasScore": 2, 
+    "electricityScore": 2, 
+    "fuelScore": 2, 
+    "propaneScore": 2, 
+    "totalScore": 10
     
 }
 
 ###
-POST http://localhost:3000/energy HTTP/1.1
+POST http://localhost:8000/energy HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Propane",
+    "name": "Jack",
     "date": "2021-09-18",
-    "score": 10
+    "vehicleScore": 2, 
+    "naturalGasScore": 2, 
+    "electricityScore": 2, 
+    "fuelScore": 2, 
+    "propaneScore": 2, 
+    "totalScore": 10
     
 }
 
 ###
-POST http://localhost:3000/energy HTTP/1.1
+POST http://localhost:8000/energy HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Fuel Oil",
+    "name": "Jill",
     "date": "2021-09-18",
-    "score": 12
+    "vehicleScore": 2, 
+    "naturalGasScore": 2, 
+    "electricityScore": 2, 
+    "fuelScore": 2, 
+    "propaneScore": 2, 
+    "totalScore": 10
 }
